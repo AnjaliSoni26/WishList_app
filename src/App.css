@@ -1,0 +1,246 @@
+/* ===================================
+   Global Animations & Transitions
+=================================== */
+:root {
+  --transition-normal: 0.3s ease;
+  --transition-fast: 0.15s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Scale in animation */
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Bounce animation */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* ===================================
+   Enhanced App & Page Transitions
+=================================== */
+.app-container {
+  min-height: 100vh;
+  animation: fadeIn var(--transition-slow);
+}
+
+.page-enter {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 300ms ease-in-out;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 300ms ease-in-out;
+}
+
+/* ===================================
+   Cards: Add subtle hover animations
+=================================== */
+.wishlist-card,
+.product-card {
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  animation: scaleIn 0.4s ease;
+}
+
+.wishlist-card:hover,
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  animation: pulse 0.6s ease;
+}
+
+/* ===================================
+   Buttons: Enhance hover & active states
+=================================== */
+.btn {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1.5rem;
+  font-weight: var(--font-medium);
+  font-family: inherit;
+  background-color:rgb(103, 36, 131);
+  color:rgb(172, 128, 192);
+
+  transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.btn:hover {
+  background-color: rgb(107, 100, 112);
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(44, 5, 88, 0.5); /* Soft pastel glow */
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--primary-dark);
+  outline-offset: 2px;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(255,255,255,0.5) 10%, transparent 10.01%);
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+.btn:active::after {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  transition: 0s;
+}
+
+
+/* ===================================
+   Empty State Animation
+=================================== */
+.empty-state {
+  text-align: center;
+  padding: var(--space-5);
+  color: var(--neutral-600);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.empty-state svg {
+  width: 64px;
+  height: 64px;
+  margin-bottom: var(--space-2);
+  color: var(--neutral-400);
+  animation: bounce 2s infinite;
+}
+
+/* ===================================
+   Form Container Animation
+=================================== */
+.form-container {
+  background-color: white;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: var(--space-4);
+  max-width: 500px;
+  margin: 0 auto;
+  animation: scaleIn 0.4s ease-out;
+}
+
+/* ===================================
+   Cursor pointer for interactive elements
+=================================== */
+.clickable {
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.clickable:hover {
+  color: var(--primary);
+}
+
+/* ===================================
+   Avatar Styles
+=================================== */
+/* .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--font-medium);
+  transition: transform var(--transition-fast);
+}
+
+.avatar:hover {
+  transform: scale(1.1);
+}
+
+.avatar-sm {
+  width: 32px;
+  height: 32px;
+  font-size: 0.75rem;
+}
+
+.avatar-lg {
+  width: 48px;
+  height: 48px;
+  font-size: 1.25rem;
+} */
+
+/* ===================================
+   Utility Classes
+=================================== */
+/* .fade-in {
+  animation: fadeIn 0.5s ease;
+}
+
+.bounce-in {
+  animation: bounce 0.6s ease-in-out;
+}
+
+.scale-in {
+  animation: scaleIn 0.4s ease;
+} */
+
+/* Animations for product cards */
+/* @keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+} */
+
+/* Utility animation classes */
+/* .fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.scale-in {
+  animation: scaleIn 0.4s ease forwards;
+} */
+
+/* Enhance product card hover */
+/* .product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+} */
